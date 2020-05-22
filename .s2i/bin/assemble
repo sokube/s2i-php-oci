@@ -1,0 +1,25 @@
+#!/bin/bash
+set -xe
+
+# add oracle repo https://yum.oracle.com/getting-started.html
+wget https://yum.oracle.com/RPM-GPG-KEY-oracle-ol7 -O /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+cat <<EOF > /etc/yum.repos.d/ol7-temp.repo -
+[ol7_latest]
+name=Oracle Linux \$releasever Latest (\$basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL7/latest/\$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1
+EOF
+
+# instll oracle php packages
+yum install -y oracle-release-el7
+yum install -y oracle-instantclient19.6-basic
+yum install -y oracle-instantclient19.6-devel
+yum install -y oracle-php-release-el7
+yum install -y php-oci8-19c
+yum clean all -y
+
+cd /opt/app-root/src/
+/usr/libexec/s2i/assemble
