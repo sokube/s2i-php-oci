@@ -1,5 +1,7 @@
 # s2i-php-oci
 
+This is a repo to create an Openshift RedHat Source-to-Image (s2i) with PHP and OCI8 (Oracle client) using the base image registry.redhat.io/rhscl/php-73-rhel7.
+
 base image : https://catalog.redhat.com/software/containers/detail/5da02265dd19c70159f46017?container-tabs=overview
 
 
