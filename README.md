@@ -14,19 +14,15 @@ s2i:
 
 build the source image
 ```
-docker build -t php-73-rhel7-oci .
+docker build -t sokubedocker/php-73-rhel7-oci .
 ```
 
 build s2i image:
 ```
-s2i build -c . php-73-rhel7-oci myphp
+s2i build -c . sokubedocker/php-73-rhel7-oci myphp
 ```
 
 Test using:
 ```
 docker run -p 8080:8080 --rm -it myphp
 ```
-
-
-Connect to an Oracle database with php:
-* https://www.php.net/manual/en/function.oci-connect.php
