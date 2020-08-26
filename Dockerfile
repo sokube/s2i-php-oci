@@ -12,8 +12,6 @@ ENV DB2_HOME=/opt/ibm
 ENV ORACLE_CLIENT_VERSION="19.6"
 ENV ORACLE_HOME=/usr/lib/oracle/${ORACLE_CLIENT_VERSION}/client64
 ENV LD_LIBRARY_PATH=${ORACLE_HOME}/lib:${DB2_HOME}
-ENV https_proxy=${PROXY}
-ENV http_proxy=${PROXY}
 
 RUN set -xe && \
     echo "DB2_HOME=${DB2_HOME}" && \
